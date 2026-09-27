@@ -498,3 +498,35 @@ window.addEventListener("load", () => {
     }, 1000);
 
 });
+
+/* =========================================
+   BIRTHDAY MUSIC
+========================================= */
+
+const musicBtn = document.getElementById("musicBtn");
+const birthdayMusic = document.getElementById("birthdayMusic");
+
+musicBtn.addEventListener("click", function () {
+
+    if (birthdayMusic.paused) {
+
+        birthdayMusic.play()
+            .then(() => {
+                musicBtn.innerHTML = "🔊";
+            })
+            .catch((error) => {
+                console.log("Music could not be played:", error);
+            });
+
+    } else {
+
+        birthdayMusic.pause();
+        musicBtn.innerHTML = "🎵";
+
+    }
+
+});
+
+birthdayMusic.addEventListener("ended", function () {
+    musicBtn.innerHTML = "🎵";
+});
