@@ -499,34 +499,19 @@ window.addEventListener("load", () => {
 
 });
 
-/* =========================================
-   BIRTHDAY MUSIC
-========================================= */
-
 const musicBtn = document.getElementById("musicBtn");
 const birthdayMusic = document.getElementById("birthdayMusic");
 
-musicBtn.addEventListener("click", function () {
-
+musicBtn.addEventListener("click", () => {
     if (birthdayMusic.paused) {
-
-        birthdayMusic.play()
-            .then(() => {
-                musicBtn.innerHTML = "🔊";
-            })
-            .catch((error) => {
-                console.log("Music could not be played:", error);
-            });
-
+        birthdayMusic.play();
+        musicBtn.innerHTML = "🔊";
     } else {
-
         birthdayMusic.pause();
         musicBtn.innerHTML = "🎵";
-
     }
-
 });
 
-birthdayMusic.addEventListener("ended", function () {
+birthdayMusic.addEventListener("ended", () => {
     musicBtn.innerHTML = "🎵";
 });
