@@ -500,3 +500,19 @@ window.addEventListener("load", () => {
 });
 
 
+const musicBtn = document.getElementById("musicBtn");
+const birthdayMusic = document.getElementById("birthdayMusic");
+
+musicBtn.addEventListener("click", () => {
+    if (birthdayMusic.paused) {
+        birthdayMusic.play();
+        musicBtn.innerHTML = "🔊";
+    } else {
+        birthdayMusic.pause();
+        musicBtn.innerHTML = "🎵";
+    }
+});
+
+birthdayMusic.addEventListener("ended", () => {
+    musicBtn.innerHTML = "🎵";
+});
